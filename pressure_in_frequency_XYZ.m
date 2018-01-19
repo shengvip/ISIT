@@ -5,14 +5,14 @@ for I=1:1:length(speaker_array_azimuth)
     %end
    s=funky(I);
    S=fft(s);
-   %s2(:,I) = fft(s1);%¸µÀïÒ¶±ä»»    
+   %s2(:,I) = fft(s1);%å‚…é‡Œå¶å˜æ¢    
    % S(1,I)=s2(1,I);
-% G ºÍ k ,kÎª²¨Êı k=2*pi*f/c , c=340m/s
+% G å’Œ k ,kä¸ºæ³¢æ•° k=2*pi*f/c , c=340m/s
 %G =1.0;
 c = 340;
 k = 2*pi*F/c;
      
-    a = 2*cos((pi/180)*speaker_array_azimuth(I))*cos((pi/180)*(speaker_array_elevation(I)));%Çò°ë¾¶Îª2m    
+    a = 2*cos((pi/180)*speaker_array_azimuth(I))*cos((pi/180)*(speaker_array_elevation(I)));%çƒåŠå¾„ä¸º2m    
     b = 2*sin((pi/180)*speaker_array_azimuth(I))*cos((pi/180)*(speaker_array_elevation(I)));
     c = 2*sin((pi/180)*speaker_array_elevation(I));
     d=sqrt((a-x)^2+(b-y)^2+(c-z)^2);
