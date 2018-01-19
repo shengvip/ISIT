@@ -1,27 +1,29 @@
+slCharacterEncoding('UTF-8')
 clc;
 clear;
-
-% åˆå§‹åŒ–å‚æ•°
-%% **********å¹³é¢æ³¢**************************************
-speaker_array_azimuth=[320,90,95,120]; % è½¦å†…éŸ³å“æŒ‰å››ä¸ªæ‰¬å£°å™¨è¯•éªŒ
+% ³õÊ¼»¯²ÎÊı
+%%**********Æ½Ãæ²¨**************************************
+speaker_array_azimuth=[320,90,95,120]; % ³µÄÚËÄ¸öÑïÉùÆ÷
 speaker_array_elevation=[0,0,0,0];
-distance=1; %è®¡ç®—-distanceè‡³distanceä¹‹é—´çš„å£°åœºã€‚
-F=1000;%è®¡ç®—å£°å‹æ—¶ä¿¡å·é¢‘ç‡
-dB=0;%dB=1ï¼Œç”»å£°å‹çº§ï¼ŒdB=0ï¼Œç”»å£°å‹
+distance=1; % 
+F=1000;% ÆµÂÊ1000Hz
+dB=0;%dB=1£¬0£¬dB=1£¬»­ÉùÑ¹¼¶£¬dB=0£¬»­ÉùÑ¹
+wp=zeros(10^4,5);
+i=1;
+% ¼ÆËãÉùÑ¹
 
-% è®¡ç®—å£°å‹
-
-for w1=0:0.1:1
-    for w2=0:0.1:1
-        for w3=0:0.1:1
-            for w4=0:0.1:1
+for w1=linspace(0,1,10)
+    for w2=linspace(0,1,10)
+        for w3=linspace(0,1,10)
+            for w4=linspace(0,1,10)
                 w=[w1,w2,w3,w4];
-                if length(speaker_array_azimuth) ~= length(w) % æƒé‡æ•°é‡ä¸æ‰¬å£°å™¨æ•°é‡ä¸ä¸€è‡´
+                if length(speaker_array_azimuth) ~= length(w) % é‰å†®å™¸éä¼´å™ºæ¶“åº¢å£ƒæ¾¹æ¿æ«’éä¼´å™ºæ¶“å¶„ç«´é‘?
                     display('Dimension error. Please check the dimension of w.');
                     break;break;break;break;
                 else
                     p=pressure_2D(speaker_array_azimuth,speaker_array_elevation,w,distance,F,dB);
-                    
+                    wp(i,:)=[w p];
+                    i=i+1;
                 end
             end
         end
