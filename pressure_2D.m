@@ -16,7 +16,8 @@ function P=pressure_2D(speaker_azimuth,speaker_elevation,funky,distance,F,dB)
          pressure(I,J)=pressure_one(1,4);
      end
  end
- P=wav_field_norm_pressure(pressure,x,y,xref,yref);%参考点为（0,0,0）
+ P=pressure;
+ % P=wav_field_norm_pressure(pressure,x,y,xref,yref);%参考点为（0,0,0）
  %% ===== Calculation =====================================================
 % Check the size of x,y and P
 if size(P,1)~=length(y) || size(P,2)~=length(x)
