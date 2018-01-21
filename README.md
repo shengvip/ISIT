@@ -1,2 +1,0 @@
-# ISIT
-sound calculation
